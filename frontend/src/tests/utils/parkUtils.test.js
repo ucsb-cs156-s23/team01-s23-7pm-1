@@ -77,8 +77,8 @@ describe("parkUtils tests", () => {
         test("When parks is JSON of three parks, should return that JSON", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
-            const mockparkCollection = { nextId: 10, parks: threeparks };
+            const threeParks = parkFixtures.threeParks;
+            const mockparkCollection = { nextId: 10, parks: threeParks };
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
             getItemSpy.mockImplementation(createGetItemMock(mockparkCollection));
@@ -100,28 +100,28 @@ describe("parkUtils tests", () => {
         test("Check that getting a park by id works", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
-            const idToGet = threeparks[1].id;
+            const threeParks = parkFixtures.threeParks;
+            const idToGet = threeParks[1].id;
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             // act
             const result = parkUtils.getById(idToGet);
 
             // assert
 
-            const expected = { park: threeparks[1] };
+            const expected = { park: threeParks[1] };
             expect(result).toEqual(expected);
         });
 
         test("Check that getting a non-existing park returns an error", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
+            const threeParks = parkFixtures.threeParks;
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             // act
             const result = parkUtils.getById(99);
@@ -134,10 +134,10 @@ describe("parkUtils tests", () => {
         test("Check that an error is returned when id not passed", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
+            const threeParks = parkFixtures.threeParks;
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             // act
             const result = parkUtils.getById();
@@ -152,7 +152,7 @@ describe("parkUtils tests", () => {
         test("Starting from [], check that adding one park works", () => {
 
             // arrange
-            const park = parkFixtures.onepark[0];
+            const park = parkFixtures.onePark[0];
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
             getItemSpy.mockImplementation(createGetItemMock({ nextId: 1, parks: [] }));
 
@@ -165,7 +165,7 @@ describe("parkUtils tests", () => {
             // assert
             expect(result).toEqual(park);
             expect(setItemSpy).toHaveBeenCalledWith("parks",
-                JSON.stringify({ nextId: 2, parks: parkFixtures.onepark }));
+                JSON.stringify({ nextId: 2, parks: parkFixtures.onePark }));
         });
     });
 
@@ -173,19 +173,19 @@ describe("parkUtils tests", () => {
         test("Check that updating an existing park works", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
+            const threeParks = parkFixtures.threeParks;
             const updatedpark = {
-                ...threeparks[0],
+                ...threeParks[0],
                 name: "Updated Name"
             };
-            const threeparksUpdated = [
+            const threeParksUpdated = [
                 updatedpark,
-                threeparks[1],
-                threeparks[2]
+                threeParks[1],
+                threeParks[2]
             ];
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
             setItemSpy.mockImplementation((_key, _value) => null);
@@ -194,17 +194,17 @@ describe("parkUtils tests", () => {
             const result = parkUtils.update(updatedpark);
 
             // assert
-            const expected = { parkCollection: { nextId: 5, parks: threeparksUpdated } };
+            const expected = { parkCollection: { nextId: 5, parks: threeParksUpdated } };
             expect(result).toEqual(expected);
             expect(setItemSpy).toHaveBeenCalledWith("parks", JSON.stringify(expected.parkCollection));
         });
         test("Check that updating an non-existing park returns an error", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
+            const threeParks = parkFixtures.threeParks;
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
             setItemSpy.mockImplementation((_key, _value) => null);
@@ -229,15 +229,15 @@ describe("parkUtils tests", () => {
         test("Check that deleting a park by id works", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
-            const idToDelete = threeparks[1].id;
-            const threeparksUpdated = [
-                threeparks[0],
-                threeparks[2]
+            const threeParks = parkFixtures.threeParks;
+            const idToDelete = threeParks[1].id;
+            const threeParksUpdated = [
+                threeParks[0],
+                threeParks[2]
             ];
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
             setItemSpy.mockImplementation((_key, _value) => null);
@@ -247,17 +247,17 @@ describe("parkUtils tests", () => {
 
             // assert
 
-            const expected = { parkCollection: { nextId: 5, parks: threeparksUpdated } };
+            const expected = { parkCollection: { nextId: 5, parks: threeParksUpdated } };
             expect(result).toEqual(expected);
             expect(setItemSpy).toHaveBeenCalledWith("parks", JSON.stringify(expected.parkCollection));
         });
         test("Check that deleting a non-existing park returns an error", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
+            const threeParks = parkFixtures.threeParks;
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
             setItemSpy.mockImplementation((_key, _value) => null);
@@ -273,10 +273,10 @@ describe("parkUtils tests", () => {
         test("Check that an error is returned when id not passed", () => {
 
             // arrange
-            const threeparks = parkFixtures.threeparks;
+            const threeParks = parkFixtures.threeParks;
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeparks }));
+            getItemSpy.mockImplementation(createGetItemMock({ nextId: 5, parks: threeParks }));
 
             // act
             const result = parkUtils.del();
