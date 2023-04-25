@@ -6,7 +6,7 @@ const parkFixtures = {
             "name": "Yosemite National Park",
             "state": "California",
             "acres": 761747,
-            "description": "Yosemite National Park is a national park located in the western Sierra Nevada region of California, known for its scenic natural beauty featuring granite cliffs, waterfalls, giant sequoias, and diverse wildlife."
+            "description": "Iconic granite cliffs, waterfalls, giant sequoias, and diverse wildlife."
         }
     ],
 
@@ -17,7 +17,7 @@ const parkFixtures = {
             "name": "Grand Canyon National Park",
             "state": "Arizona",
             "acres": 1218375,
-            "description": "Grand Canyon National Park is a national park located in northern Arizona, known for its spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River."
+            "description": "Spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River."
         },
 
         {
@@ -25,7 +25,7 @@ const parkFixtures = {
             "name": "Zion National Park",
             "state": "Utah",
             "acres": 147242,
-            "description": "Zion National Park is a national park located in southwestern Utah, known for its magnificent sandstone cliffs, narrow canyons, and diverse plant and animal life."
+            "description": "Magnificent sandstone cliffs, narrow canyons, and diverse plant and animal life."
         },
 
         {
@@ -33,7 +33,7 @@ const parkFixtures = {
             "name": "Grand Teton National Park",
             "state": "Wyoming",
             "acres": 310044,
-            "description": "Grand Teton National Park is a national park located in northwestern Wyoming, known for its towering mountain peaks, glacial lakes, and abundant wildlife."
+            "description": "Towering mountain peaks, glacial lakes, and abundant wildlife."
         },
 
     ]
