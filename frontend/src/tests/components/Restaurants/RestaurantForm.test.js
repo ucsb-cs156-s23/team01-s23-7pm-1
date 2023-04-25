@@ -57,7 +57,7 @@ describe("RestaurantForm tests", () => {
         expect(screen.getByText(`Id`)).toBeInTheDocument();
     });
 
-   
+
     test("that navigate(-1) is called when Cancel is clicked", async () => {
         render(
             <QueryClientProvider client={queryClient}>

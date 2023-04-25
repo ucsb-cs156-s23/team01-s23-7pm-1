@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import ArroyoGrandePage from "main/pages/ArroyoGrandePage";
+import ArroyoGrandePage from "main/pages/Towns/ArroyoGrandePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 

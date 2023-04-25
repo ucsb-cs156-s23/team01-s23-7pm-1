@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import LosAlamosPage from "main/pages/LosAlamosPage";
+import AvilaBeachPage from "main/pages/Towns/AvilaBeachPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -10,7 +10,7 @@ describe("ArroyoGrandePage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <LosAlamosPage />
+                    <AvilaBeachPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );

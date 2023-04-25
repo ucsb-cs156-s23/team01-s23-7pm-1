@@ -1,28 +1,32 @@
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useNavigate } from "react-router-dom";
-
+import { restaurantUtils } from "main/utils/restaurantUtils";
 
 const showCell = (cell) => JSON.stringify(cell.row.values);
 
-export default function RestaurantTable({ restaurants, showButtons=true }) {
+
+const defaultDeleteCallback = async (cell) => {
+    console.log(`deleteCallback: ${showCell(cell)})`);
+    restaurantUtils.del(cell.row.values.id);
+}
+
+export default function RestaurantTable({
+    restaurants,
+    deleteCallback = defaultDeleteCallback,
+    showButtons = true,
+    testIdPrefix = "RestaurantTable" }) {
+
     const navigate = useNavigate();
-
-    const testIdPrefix = "RestaurantTable";
-
-
+ 
     const editCallback = (cell) => {
         console.log(`editCallback: ${showCell(cell)})`);
-        navigate(`/restaurant/edit/${cell.row.values.id}`)
+        navigate(`/restaurants/edit/${cell.row.values.id}`)
     }
 
     const detailsCallback = (cell) => {
         console.log(`detailsCallback: ${showCell(cell)})`);
-        navigate(`/restaurant/details/${cell.row.values.id}`)
-    }
-
-    const deleteCallback = async (cell) => { 
-        console.log(`deleteCallback: ${showCell(cell)})`);
+        navigate(`/restaurants/details/${cell.row.values.id}`)
     }
 
     const columns = [
@@ -30,7 +34,7 @@ export default function RestaurantTable({ restaurants, showButtons=true }) {
             Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
-        
+
         {
             Header: 'Name',
             accessor: 'name',

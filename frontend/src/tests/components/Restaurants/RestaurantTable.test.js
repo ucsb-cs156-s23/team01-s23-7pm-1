@@ -105,6 +105,10 @@ describe("RestaurantTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-name`)).toHaveTextContent("Freebirds");
+
+    expect(screen.queryByText("Delete")).not.toBeInTheDocument();
+    expect(screen.queryByText("Edit")).not.toBeInTheDocument();
+    expect(screen.queryByText("Details")).not.toBeInTheDocument();
   });
 
 
@@ -132,7 +136,7 @@ describe("RestaurantTable tests", () => {
     fireEvent.click(editButton);
 
     // assert - check that the navigate function was called with the expected path
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/restaurant/edit/2'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/restaurants/edit/2'));
 
     // assert - check that the console.log was called with the expected message
     expect(console.log).toHaveBeenCalled();
@@ -166,7 +170,7 @@ describe("RestaurantTable tests", () => {
     fireEvent.click(detailsButton);
 
     // assert - check that the navigate function was called with the expected path
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/restaurant/details/2'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/restaurants/details/2'));
 
     // assert - check that the console.log was called with the expected message
     expect(console.log).toHaveBeenCalled();
