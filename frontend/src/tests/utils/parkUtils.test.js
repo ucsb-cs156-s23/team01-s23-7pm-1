@@ -35,7 +35,7 @@ describe("parkUtils tests", () => {
             expect(setItemSpy).toHaveBeenCalledWith("parks", expectedJSON);
         });
 
-        /* test("When parks is null in local storage, should set to empty list", () => {
+        test("When parks is null in local storage, should set to empty list", () => {
 
             // arrange
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
@@ -92,11 +92,11 @@ describe("parkUtils tests", () => {
             // assert
             expect(result).toEqual(mockparkCollection);
             expect(setItemSpy).not.toHaveBeenCalled();
-        }); */
+        });
     });
 
 
-    /* describe("getById", () => {
+    describe("getById", () => {
         test("Check that getting a park by id works", () => {
 
             // arrange
@@ -285,6 +285,6 @@ describe("parkUtils tests", () => {
             const expectedError = `id is a required parameter`
             expect(result).toEqual({ error: expectedError });
         });
-    }); */
+    });
 });
 
