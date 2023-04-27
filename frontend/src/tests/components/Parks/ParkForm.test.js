@@ -1,8 +1,8 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import RestaurantForm from "main/components/Restaurants/RestaurantForm";
-import { restaurantFixtures } from "fixtures/restaurantFixtures";
+import ParkForm from "main/components/Parks/ParkForm";
+import { parkFixtures } from "fixtures/parkFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -13,17 +13,17 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockedNavigate
 }));
 
-describe("RestaurantForm tests", () => {
+describe("ParkForm tests", () => {
     const queryClient = new QueryClient();
 
-    const expectedHeaders = ["Name","Description"];
-    const testId = "RestaurantForm";
+    const expectedHeaders = ["Name","State","Acres","Description"];
+    const testId = "ParkForm";
 
     test("renders correctly with no initialContents", async () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
-                    <RestaurantForm />
+                    <ParkForm />
                 </Router>
             </QueryClientProvider>
         );
@@ -41,7 +41,7 @@ describe("RestaurantForm tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
-                    <RestaurantForm initialContents={restaurantFixtures.oneRestaurant} />
+                    <ParkForm initialContents={parkFixtures.onePark} />
                 </Router>
             </QueryClientProvider>
         );
@@ -62,7 +62,7 @@ describe("RestaurantForm tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
-                    <RestaurantForm />
+                    <ParkForm />
                 </Router>
             </QueryClientProvider>
         );
