@@ -59,7 +59,6 @@ describe("ParkDetailsPage tests", () => {
         expect(screen.queryByText("Edit")).not.toBeInTheDocument();
         expect(screen.queryByText("Details")).not.toBeInTheDocument();
     });
-
 });
 
 
