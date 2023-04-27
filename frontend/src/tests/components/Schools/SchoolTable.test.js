@@ -45,7 +45,7 @@ describe("SchoolTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <SchoolTable schools={schoolFixtures.threeschools} />
+          <SchoolTable schools={schoolFixtures.threeSchools} />
         </MemoryRouter>
       </QueryClientProvider>
     );
@@ -175,7 +175,7 @@ describe("SchoolTable tests", () => {
     // assert - check that the console.log was called with the expected message
     expect(console.log).toHaveBeenCalled();
     const message = console.log.mock.calls[0][0];
-    const expectedMessage = `detailsCallback: {"id":2,"name":"Isla Vista Elementary School","district":"Goleta Union School District","grade range":"K-6"3})`;
+    const expectedMessage = `detailsCallback: {"id":2,"name":"Isla Vista Elementary School","district":"Goleta Union School District","grade range":"K-6"})`;
     expect(message).toMatch(expectedMessage);
     restoreConsole();
   });
