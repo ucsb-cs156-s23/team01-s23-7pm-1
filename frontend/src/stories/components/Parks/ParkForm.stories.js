@@ -1,15 +1,15 @@
 import React from 'react';
-import RestaurantForm from "main/components/Restaurants/RestaurantForm"
-import { restaurantFixtures } from 'fixtures/restaurantFixtures';
+import ParkForm from "main/components/Parks/ParkForm"
+import { parkFixtures } from 'fixtures/parkFixtures';
 
 export default {
-    title: 'components/Restaurants/RestaurantForm',
-    component: RestaurantForm
+    title: 'components/Parks/ParkForm',
+    component: ParkForm
 };
 
 const Template = (args) => {
     return (
-        <RestaurantForm {...args} />
+        <ParkForm {...args} />
     )
 };
 
@@ -23,7 +23,7 @@ Default.args = {
 export const Show = Template.bind({});
 
 Show.args = {
-    Restaurant: restaurantFixtures.oneRestaurant,
+    Park: parkFixtures.onePark,
     submitText: "",
     submitAction: () => { }
 };

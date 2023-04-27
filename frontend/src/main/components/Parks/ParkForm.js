@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
-function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" }) {
+function ParkForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
     const navigate = useNavigate();
     
@@ -17,7 +17,7 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
     );
     // Stryker enable all
    
-    const testIdPrefix = "RestaurantForm";
+    const testIdPrefix = "ParkForm";
 
     return (
 
@@ -47,13 +47,54 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
                     {...register("name", {
                         required: "Name is required.",
                         maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
+                            value: 50,
+                            message: "Max length 50 characters"
                         }
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
                     {errors.name?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="state">State</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-state"}
+                    id="state"
+                    type="text"
+                    isInvalid={Boolean(errors.state)}
+                    {...register("state", {
+                        required: "State is required.",
+                        maxLength : {
+                            value: 25,
+                            message: "Max length 25 characters"
+                        }
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.state?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="acres">Acres</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-acres"}
+                    id="acres"
+                    type="number"
+                    isInvalid={Boolean(errors.state)}
+                    {...register("acres", {
+                        required: "Acres are required.",
+                        valueAsNumber: true,
+                        // maxLength : {
+                        //     value: 25,
+                        //     message: "Max length 25 characters"
+                        // }
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.acres?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
@@ -93,4 +134,4 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
     )
 }
 
-export default RestaurantForm;
+export default ParkForm;
