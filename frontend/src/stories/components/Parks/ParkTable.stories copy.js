@@ -1,5 +1,5 @@
 import React from 'react';
-import ParkTable from 'main/components/Restaurants/ParkTable';
+import ParkTable from 'main/components/Parks/ParkTable';
 import { parkFixtures } from 'fixtures/parkFixtures';
 
 export default {
