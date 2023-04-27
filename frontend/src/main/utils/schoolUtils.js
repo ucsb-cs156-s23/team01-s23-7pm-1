@@ -1,4 +1,4 @@
-// Get schools from local storage
+// get schools from local storage
 const get = () => {
     const schoolValue = localStorage.getItem("schools");
     if (schoolValue === undefined) {
@@ -28,13 +28,13 @@ const getById = (id) => {
     return { school: schools[index] };
 }
 
-// Set schools in local storage
+// set schools in local storage
 const set = (schoolCollection) => {
     localStorage.setItem("schools", JSON.stringify(schoolCollection));
     return schoolCollection;
 };
 
-// Add school to local storage
+// add a school to local storage
 const add = (school) => {
     const schoolCollection = get();
     school = { ...school, id: schoolCollection.nextId };
@@ -44,7 +44,7 @@ const add = (school) => {
     return school;
 };
 
-// Update a school in local storage
+// update a school in local storage
 const update = (school) => {
     const schoolCollection = get();
 
@@ -53,21 +53,23 @@ const update = (school) => {
     /* eslint-disable-next-line eqeqeq */ // we really do want == here, not ===
     const index = schools.findIndex((r) => r.id == school.id);
     if (index === -1) {
-        return { "error": `park with id ${school.id} not found` };
+        return { "error": `school with id ${school.id} not found` };
     }
     schools[index] = school;
     set(schoolCollection);
     return { schoolCollection: schoolCollection };
 };
 
-// Delete a school from local storage
+// delete a school from local storage
 const del = (id) => {
     if (id === undefined) {
         return { "error": "id is a required parameter" };
     }
     const schoolCollection = get();
-    const schools = schoolCollection.school;
-    const index = school.findIndex((r) => r.id == id);
+    const schools = schoolCollection.schools;
+
+    /* eslint-disable-next-line eqeqeq */ // we really do want == here, not ===
+    const index = schools.findIndex((r) => r.id == id);
     if (index === -1) {
         return { "error": `school with id ${id} not found` };
     }
