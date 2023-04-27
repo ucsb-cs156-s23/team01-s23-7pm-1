@@ -1,4 +1,4 @@
-const clothesFixtures = {
+const clothFixtures = {
     oneCloth:
     [
       {
@@ -9,7 +9,7 @@ const clothesFixtures = {
       }
     ],
 
-    threeClothes:
+    threeCloths:
     [
         {
             "id": 2,
@@ -34,4 +34,4 @@ const clothesFixtures = {
     ]
 };
 
-export { clothesFixtures };
+export { clothFixtures };
