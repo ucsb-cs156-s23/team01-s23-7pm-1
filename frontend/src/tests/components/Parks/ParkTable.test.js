@@ -141,7 +141,7 @@ describe("ParkTable tests", () => {
     // assert - check that the console.log was called with the expected message
     expect(console.log).toHaveBeenCalled();
     const message = console.log.mock.calls[0][0];
-    const expectedMessage = `editCallback: {"id":2,"name":"Grand Canyon National Park","description":"Spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River."})`;
+    const expectedMessage = `editCallback: {\"id\":2,\"name\":\"Grand Canyon National Park\",\"state\":\"Arizona\",\"description\":\"Spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River.\",\"acres\":1218375})`;
     expect(message).toMatch(expectedMessage);
     restoreConsole();
   });
@@ -175,7 +175,7 @@ describe("ParkTable tests", () => {
     // assert - check that the console.log was called with the expected message
     expect(console.log).toHaveBeenCalled();
     const message = console.log.mock.calls[0][0];
-    const expectedMessage = `detailsCallback: {"id":2,"name":"Grand Canyon National Park","description":"Spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River."})`;
+    const expectedMessage = `detailsCallback: {\"id\":2,\"name\":\"Grand Canyon National Park\",\"state\":\"Arizona\",\"description\":\"Spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River.\",\"acres\":1218375})`;
     expect(message).toMatch(expectedMessage);
     restoreConsole();
   });
@@ -206,7 +206,7 @@ describe("ParkTable tests", () => {
      // assert - check that the console.log was called with the expected message
      await(waitFor(() => expect(console.log).toHaveBeenCalled()));
      const message = console.log.mock.calls[0][0];
-     const expectedMessage = `deleteCallback: {"id":2,"name":"Grand Canyon National Park","description":"Spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River."})`;
+     const expectedMessage = `deleteCallback: {\"id\":2,\"name\":\"Grand Canyon National Park\",\"state\":\"Arizona\",\"description\":\"Spectacular landscape of deep canyons and colorful rock formations, carved over millions of years by the Colorado River.\",\"acres\":1218375})`;
      expect(message).toMatch(expectedMessage);
      restoreConsole();
   });
