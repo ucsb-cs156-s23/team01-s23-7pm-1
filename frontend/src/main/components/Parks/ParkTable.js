@@ -34,14 +34,21 @@ export default function ParkTable({
             Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
-
         {
             Header: 'Name',
             accessor: 'name',
         },
         {
+            Header: 'State',
+            accessor: 'state',
+        },
+        {
             Header: 'Description',
             accessor: 'description',
+        },
+        {
+            Header: 'Acres',
+            accessor: 'acres',
         }
     ];
 
