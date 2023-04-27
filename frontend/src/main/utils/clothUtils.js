@@ -1,4 +1,4 @@
-// get cloths from local storage
+// get cloths from local storage yes
 const get = () => {
     const clothValue = localStorage.getItem("cloths");
     if (clothValue === undefined) {
