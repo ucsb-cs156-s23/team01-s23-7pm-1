@@ -15,8 +15,8 @@ jest.mock('react-router-dom', () => ({
 describe("ParkTable tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["id", "Name", "Description"];
-  const expectedFields = ["id", "name", "description"];
+  const expectedHeaders = ["id", "Name", "State", "Description", "Acres"];
+  const expectedFields = ["id", "name", "state", "description", "acres"];
   const testId = "ParkTable";
 
   test("showCell function works properly", () => {
